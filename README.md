@@ -15,7 +15,7 @@ The Hook is a Statamic project that contains:
 
 To install Statamic and its dependencies, you may issue the following command from the root of your project:
 
-``bash
+```bash
 composer install
 ```
 
