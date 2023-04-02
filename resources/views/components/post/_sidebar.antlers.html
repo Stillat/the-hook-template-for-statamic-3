@@ -1,0 +1,13 @@
+---
+title_limit: 45
+---
+
+{{ view }}
+    <a href="{{ url }}" class="flex hover:underline" title="{{ title }}">
+        <img src="{{ glide :src="header_image" width="75" height="75" /}}" alt="{{ title }}" class="object-cover" style="width:75px;height:75px;">
+        <div class="ml-4">
+            <h3 class="text-md text-gray-800 mb-2">{{ title | safe_truncate(title_limit, '...') }}</h3>
+            <p class="text-gray-600 text-sm">{{ date | iso_format('LLL') }}</p>
+        </div>
+    </a>
+{{ /view }}

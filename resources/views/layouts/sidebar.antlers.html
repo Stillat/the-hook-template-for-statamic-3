@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        {{ partial:components/site/_head /}}
+    </head>
+    <body class="bg-white">
+        {{ partial:navigation/responsive /}}
+        <div class="flex flex-col sm:flex-row h-screen">
+            <div class="hidden sm:flex fixed left-0 bottom-0 h-screen w-64 flex flex-col bg-gray-100">
+                {{ partial:navigation/main /}}
+            </div>
+            <div class="flex">
+
+            </div>
+            <div class="flex flex-col sm:flex-grow p-6 ml-0 sm:ml-64 min-h-screen">
+                <div class="mt-4">
+                    {{ partial:components/topics_search /}}
+                    {{ partial:components/breaking_news /}}
+                </div>
+                <div class="flex-1">
+                    <div class="flex flex-wrap">
+                        <div class="flex-1 p-4">
+                            <div>
+                                {{ template_content }}
+                            </div>
+                            {{ yield:pagination /}}
+                            {{ partial:components/scroll/loader /}}
+                        </div>
+
+                        {{ partial:components/sidebar /}}
+                    </div>
+                </div>
+                {{ partial:footer /}}
+            </div>
+        </div>
+
+        {{ partial:components/site/scripts /}}
+    </body>
+</html>

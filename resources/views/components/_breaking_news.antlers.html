@@ -1,0 +1,13 @@
+{{ if site_settings:show_breaking_news }}
+    {{ site_settings }}
+        {{ breaking_news_article }}
+            <a href="{{ url }}" class="block bg-red-600 text-white px-4 mb-4 py-2 font-medium text-center" title="{{ title }}">
+                <span class="inline-block mr-2">Breaking News:</span>
+                {{ unless breaking_news_title | is_empty }}
+                    <span class="inline-block mr-2 font-bold">{{ breaking_news_title }}</span>
+                {{ /unless }}
+                <span class="inline-block">{{ title | safe_truncate(55, '...') }}</span>
+            </a>
+        {{ /breaking_news_article }}
+    {{ /site_settings }}
+{{ /if }}

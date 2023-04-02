@@ -1,0 +1,14 @@
+{{ infinite_scroll:trigger /}}
+
+<footer class="text-gray-400 mt-auto">
+    <div class="container mx-auto flex flex-wrap justify-between items-center py-6 px-4 md:px-6">
+        <p class="text-base">&copy; {{ now | format('Y') /}} {{ _site_name /}}. All rights reserved.</p>
+        <div class="flex items-center">
+            {{ site_settings:social_media_profiles }}
+            <a href="{{ social_media_profile_url }}" class="mr-4" rel="nofollow" title="{{ social_media_display_name }}">
+                {{ svg :src="social_media_icon" class="w-6 h-6" /}}
+            </a>
+            {{ /site_settings:social_media_profiles }}
+        </div>
+    </div>
+</footer>

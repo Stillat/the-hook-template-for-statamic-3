@@ -1,0 +1,103 @@
+title: 'Sidebar Components'
+fields:
+  -
+    handle: sidebar_components
+    field:
+      collapse: false
+      previews: true
+      sets:
+        search_form:
+          display: 'Search Form'
+          fields: {  }
+        post_list:
+          display: 'Post List'
+          fields:
+            -
+              handle: recent_posts_title
+              field:
+                input_type: text
+                antlers: false
+                display: Title
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                validate:
+                  - required
+            -
+              handle: topic_filter
+              field:
+                mode: default
+                create: true
+                taxonomies:
+                  - topics
+                display: 'Topic Filter'
+                type: terms
+                icon: taxonomy
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+            -
+              handle: recent_post_limit
+              field:
+                display: Limit
+                type: integer
+                icon: integer
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+        text_block:
+          display: 'Text Block'
+          fields:
+            -
+              handle: text_block_title
+              field:
+                input_type: text
+                antlers: false
+                display: Title
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+            -
+              handle: text_block_content
+              field:
+                collapse: false
+                always_show_set_button: false
+                previews: true
+                smart_typography: false
+                buttons:
+                  - bold
+                  - italic
+                  - unorderedlist
+                  - orderedlist
+                  - removeformat
+                  - anchor
+                  - image
+                save_html: false
+                inline: false
+                toolbar_mode: fixed
+                link_noopener: false
+                link_noreferrer: false
+                target_blank: false
+                reading_time: false
+                fullscreen: true
+                allow_source: true
+                enable_input_rules: true
+                enable_paste_rules: true
+                antlers: false
+                remove_empty_nodes: false
+                display: Content
+                type: bard
+                icon: bard
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+      display: 'Sidebar Components'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible

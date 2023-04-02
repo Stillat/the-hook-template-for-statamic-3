@@ -1,0 +1,5 @@
+<div class="w-full xl:w-72 p-4 -mt-6">
+    {{ site_settings:sidebar_components }}
+        {{ partial:if_exists src="components/sidebar/_{type}" /}}
+    {{ /site_settings:sidebar_components }}
+</div>

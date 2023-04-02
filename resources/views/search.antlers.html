@@ -1,0 +1,31 @@
+{{ use_layout:layouts/sidebar /}}
+{{ search:results as="results" :paginate="_default_page_count" }}
+    {{ if no_results }}
+    {{ else }}
+        <div class="py-8 md:py-12">
+            <div class="container mx-auto">
+                <p class="text-lg text-gray-600 mb-8">Showing
+                    {{ total_results }}
+                    {{ if paginate }}
+                        of {{ paginate.total_items /}}
+                    {{ /if }} results
+                </p>
+                <div class="flex flex-wrap mx-4">
+                    <ul>
+                        {{ results }}
+                            <li class="flex items-center mb-4">
+                                {{ partial:components/post/sidebar title_limit="65" /}}
+                            </li>
+                        {{ /results }}
+                    </ul>
+                </div>
+
+                {{ paginate }}
+                    {{ partial:components/pagination/window /}}
+                {{ /paginate }}
+            </div>
+        </div>
+    {{ /if }}
+{{ /search:results }}
+
+{{ partial:components/scroll/explore post_limit="12" /}}

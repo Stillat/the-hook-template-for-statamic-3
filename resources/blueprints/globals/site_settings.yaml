@@ -1,0 +1,238 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: site_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Site Name'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: lower_content
+        field:
+          collapse: false
+          always_show_set_button: false
+          previews: true
+          smart_typography: false
+          buttons:
+            - bold
+            - italic
+            - removeformat
+            - anchor
+          save_html: false
+          inline: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          remove_empty_nodes: false
+          display: 'Lower Menu Content'
+          type: bard
+          icon: bard
+          instructions: 'This content appears in the lower-left corner of the main menu.'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: breaking_news_section
+        field:
+          display: 'Breaking News'
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: show_breaking_news
+        field:
+          default: false
+          display: 'Show Breaking News'
+          type: toggle
+          icon: toggle
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+      -
+        handle: breaking_news_title
+        field:
+          input_type: text
+          antlers: false
+          display: Title
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          if:
+            show_breaking_news: 'equals true'
+      -
+        handle: breaking_news_article
+        field:
+          max_items: 1
+          mode: default
+          create: true
+          collections:
+            - blog
+          display: 'Breaking News Article'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          validate:
+            - sometimes
+            - 'required_if:show_breaking_news,true'
+          if:
+            show_breaking_news: 'equals true'
+      -
+        handle: general_settings
+        field:
+          display: 'General Settings'
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: default_page_count
+        field:
+          default: '6'
+          display: 'Default Page Count'
+          type: integer
+          icon: integer
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          width: 50
+      -
+        handle: pagination_type
+        field:
+          options:
+            infinite: 'Infinite Scroll'
+            links: Links
+          multiple: false
+          max_items: 1
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          default: links
+          display: 'Pagination Type'
+          type: select
+          icon: select
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          validate:
+            - required
+          width: 50
+      -
+        handle: randomize_topic_filters
+        field:
+          default: true
+          display: 'Randomize Topic Filters'
+          type: toggle
+          icon: toggle
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          if:
+            show_breaking_news: 'equals true'
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: sidebar_recent_post_count
+        field:
+          default: '6'
+          display: 'Default Sidebar Recent Post Count'
+          type: integer
+          icon: integer
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - required
+            - 'min:1'
+      -
+        handle: sidebar_components
+        field: sidebar_components.sidebar_components
+  footer:
+    display: Footer
+    fields:
+      -
+        handle: social_media_profiles
+        field:
+          fields:
+            -
+              handle: social_media_icon
+              field:
+                mode: list
+                container: assets
+                restrict: true
+                allow_uploads: true
+                show_filename: false
+                max_files: 1
+                display: Icon
+                type: assets
+                icon: assets
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                width: 25
+                folder: social_media_icons
+            -
+              handle: social_media_display_name
+              field:
+                input_type: text
+                antlers: false
+                display: 'Display Name'
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                validate:
+                  - required
+                width: 25
+            -
+              handle: social_media_profile_url
+              field:
+                input_type: text
+                antlers: false
+                display: 'Profile URL'
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                validate:
+                  - required
+                  - url
+                width: 50
+          mode: table
+          reorderable: true
+          display: 'Social Media Profiles'
+          type: grid
+          icon: grid
+          listable: hidden
+          instructions_position: above
+          visibility: visible

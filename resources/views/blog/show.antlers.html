@@ -1,0 +1,31 @@
+{{ use_layout:layouts/sidebar /}}
+{{ partial:components/title /}}
+<p class="text-sm text-gray-500 -mt-4 mb-4">By {{ author.name /}} | {{ date | iso_format('LLL') }}</p>
+{{ if header_image }}
+    <div class="relative w-full mb-6 md:mb-8">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ header_image /}}');"></div>
+        <div class="absolute inset-0 bg-gray-900 opacity-25"></div>
+        <div class="block h-72 py-4"></div>
+    </div>
+    {{ if header_attribution }}
+        <div class="-mt-6 mb-2">
+            <p class="text-sm text-gray-400">{{ header_attribution /}}</p>
+        </div>
+    {{ /if }}
+{{ /if }}
+
+<div class="prose">
+    {{ content }}
+        {{ partial:if_exists src="components/content/_{type}" /}}
+    {{ /content }}
+</div>
+
+{{ section:pagination }}
+    {{ if _is_infinite_scroll }}
+        <div>
+            {{ infinite_scroll:target /}}
+        </div>
+    {{ else }}
+        {{ partial:components/pagination/links /}}
+    {{ /if }}
+{{ /section:pagination }}

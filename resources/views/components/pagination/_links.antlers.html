@@ -1,0 +1,20 @@
+<div class="flex justify-between items-center text-center w-full border-t border-gray-200 py-8 mt-8">
+    {{ collection:previous from="blog" limit="1" }}
+        {{ unless no_results }}
+            {{ partial:components/pagination/previous /}}
+        {{ else }}
+            {{ collection:blog sort="date:desc" limit="1" }}
+                {{ partial:components/pagination/previous /}}
+            {{ /collection:blog }}
+        {{ /unless }}
+    {{ /collection:previous }}
+    {{ collection:next from="blog" limit="1" }}
+        {{ unless no_results }}
+            {{ partial:components/pagination/next /}}
+        {{ else }}
+            {{ collection:blog sort="date:asc" limit="1" }}
+                {{ partial:components/pagination/next /}}
+            {{ /collection:blog }}
+        {{ /unless }}
+    {{ /collection:next }}
+</div>

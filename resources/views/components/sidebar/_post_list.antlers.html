@@ -1,0 +1,20 @@
+---
+title_limit: 45
+---
+
+{{ view }}
+    {{ collection:blog :id:isnt="page:id" sort="date:desc" taxonomy:in="{topic_filter ?? void}" limit="{recent_post_limit ?? _sidebar_recent_post_count}" as="posts" }}
+        {{ unless no_results }}
+            <div class="flex flex-col">
+                <div class="font-bold text-lg mb-4">{{ recent_posts_title }}</div>
+                <ul>
+                    {{ posts }}
+                        <li class="flex items-center mb-4">
+                            {{ partial:components/post/sidebar :title_limit="title_limit" /}}
+                        </li>
+                    {{ /posts }}
+                </ul>
+            </div>
+        {{ /unless }}
+    {{ /collection:blog }}
+{{ /view }}

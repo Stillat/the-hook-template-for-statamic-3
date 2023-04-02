@@ -1,0 +1,11 @@
+{{ if template == 'blog/show' }}
+    {{ if times_loaded < 3 }}
+        {{ partial:components/scroll/article /}}
+    {{ elseif times_loaded == 3 }}
+        {{ partial:components/scroll/explore /}}
+    {{ else }}
+        {{# Empty content will stop the infinite scroll from continuing. #}}
+    {{ /if }}
+{{ else }}
+    {{ partial:components/scroll/grid /}}
+{{ /if }}

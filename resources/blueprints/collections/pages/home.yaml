@@ -1,0 +1,125 @@
+title: Home
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  main_content:
+    display: 'Main Content'
+    fields:
+      -
+        handle: pinned_article
+        field:
+          max_items: 1
+          mode: default
+          create: true
+          collections:
+            - blog
+          display: 'Pinned Article'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - required
+      -
+        handle: pinned_articles
+        field:
+          max_items: 6
+          mode: default
+          create: true
+          collections:
+            - blog
+          display: 'Pinned Articles'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - required
+      -
+        handle: pinned_topics
+        field:
+          max_items: 4
+          mode: default
+          create: true
+          taxonomies:
+            - topics
+          display: 'Pinned Topics'
+          type: terms
+          icon: taxonomy
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  right_side_bar:
+    display: 'Right Side Bar'
+    fields:
+      -
+        handle: right_side_bar_title
+        field:
+          input_type: text
+          antlers: false
+          display: Title
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - required
+      -
+        handle: right_side_featured_article
+        field:
+          max_items: 1
+          mode: default
+          create: true
+          collections:
+            - blog
+          display: 'Featured Article'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: right_side_pinned_posts
+        field:
+          max_items: 6
+          mode: default
+          create: true
+          collections:
+            - blog
+          display: 'Right Side Pinned Posts'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: sidebar_components
+        field: sidebar_components.sidebar_components

@@ -1,0 +1,17 @@
+<div class="flex items-center p-4">
+    <a href="{{ homepage }}" class="flex items-center">
+        {{ svg:svg/hook  class="w-8 mr-4" /}}
+          
+        <span class="leading-tight font-medium">{{ _site_name /}}</span>
+    </a>
+</div>
+<div class="flex-1 overflow-y-auto">
+    <nav class="h-full flex flex-col justify-center">
+        {{ nav:main }}
+            <a href="{{ url }}" class="p-4 text-lg {{ if is_current || is_parent }}font-bold text-gray-900{{ /if }} hover:text-gray-700">{{ title }}</a>
+        {{ /nav:main }}
+    </nav>
+</div>
+<div class="text-gray-400 p-4">
+    {{ site_settings:lower_content /}}
+</div>

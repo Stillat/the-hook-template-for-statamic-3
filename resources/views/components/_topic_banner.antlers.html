@@ -1,0 +1,25 @@
+---
+banner_classes:
+  - 'text-gray-900'
+  - 'text-gray-800'
+  - 'text-gray-700'
+  - 'text-gray-600'
+  - 'text-gray-500'
+  - 'text-gray-400'
+  - 'text-gray-300'
+  - 'text-gray-300'
+  - 'text-gray-300'
+  - 'text-gray-300'
+---
+
+<div class="max-w-screen-lg mb-4 -mt-6">
+    <ul class="flex flex-wrap space-x-1 md:space-x-3 lg:space-x-4 xl:space-x-4">
+        {{ taxonomy:topics limit="10" :sort="_topic_sort_direction" }}
+            <li>
+                <a href="{{ url }}" class="block uppercase font-bold {{ view:banner_classes.{index} }} hover:text-gray-700">
+                    {{ title }}
+                </a>
+            </li>
+        {{ /taxonomy:topics }}
+    </ul>
+</div>

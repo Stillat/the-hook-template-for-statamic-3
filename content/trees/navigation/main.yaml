@@ -1,0 +1,22 @@
+tree:
+  -
+    id: dd06da13-a856-4723-b0a1-63d188106494
+    title: 'Life Hacks'
+    url: /topics/life-hacks
+  -
+    id: a961b547-f64a-4af6-829a-da02f7f1d752
+    title: News
+    url: /topics/news
+  -
+    id: c240f279-a177-44f1-9b61-881c2d4f6370
+    title: Business
+    url: /topics/business
+  -
+    id: d82e4eaf-0b7a-4752-9887-04e9f3d41d97
+    entry: 6e367d51-b702-43a5-bfb0-f34a7581b4d4
+  -
+    id: 22adbaf6-6e40-4d44-a6a1-c12cf5886be0
+    entry: fea19006-6c2b-45c5-9c3c-3913f6e22447
+  -
+    id: a0ef9a82-28c4-4c67-a01f-91c739aad601
+    entry: 469c274e-625b-4455-bc1f-fd07ff1ba799

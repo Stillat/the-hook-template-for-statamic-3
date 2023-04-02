@@ -1,0 +1,10 @@
+<div class="relative w-full mb-6 md:mb-8">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ image_field /}}');"></div>
+    <div class="absolute inset-0 bg-gray-900 opacity-25"></div>
+    <div class="block h-72 py-4"></div>
+</div>
+{{ if image_attribution }}
+    <div class="-mt-6 mb-2">
+        <p class="text-sm text-gray-400">{{ image_attribution /}}</p>
+    </div>
+{{ /if }}

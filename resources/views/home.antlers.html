@@ -1,0 +1,109 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="col-span-3 lg:col-span-2">
+        <div class="grid grid-cols-1 gap-4">
+            {{ pinned_article }}
+                <div class="p-4">
+                    <h2 class="text-3xl font-bold tracking-wide leading-tight uppercase font-bold mb-4">{{ title }}</h2>
+                    <div class="relative w-full mb-6 md:mb-8">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ header_image /}}');"></div>
+                        <div class="absolute inset-0 bg-gray-900 opacity-25"></div>
+                        <div class="block h-72 py-4"></div>
+                    </div>
+                    <p class="text-lg mb-2">By {{ author.name /}} | {{ date | iso_format('LLL') }}</p>
+                    <p class="text-lg mb-4">{{ excerpt }}</p>
+
+                    {{ partial:components/read_more /}}
+                </div>
+            {{ /pinned_article }}
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                {{ pinned_articles as="articles" }}
+                    {{ articles | chunk(3) }}
+                        <div>
+                            <ul>
+                                {{ chunk }}
+                                    {{ if first }}
+                                        <li class="flex items-center mb-4">
+                                            {{ partial:components/post/sidebar title_limit="65" /}}
+                                        </li>
+                                    {{ else }}
+                                        <li class="mb-2">
+                                            <a href="{{ url }}" title="{{ title }}" class="text-gray-800 hover:underline">{{ title | safe_truncate(85, '...') }}</a>
+                                            <p class="text-sm text-gray-500">By {{ author.name /}} | {{ date | iso_format('LLL') }}</p>
+                                        </li>
+                                    {{ /if }}
+                                {{ /chunk }}
+                            </ul>
+                        </div>
+                    {{ /articles }}
+                {{ /pinned_articles }}
+            </div>
+        </div>
+        {{ if pinned_topics }}
+            {{ pinned_topics as="_topics" }}
+                {{ _topics | chunk(2) }}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                        {{ chunk }}
+                            <div>
+                                <div class="font-bold text-lg mb-4 border-b border-gray-300">{{ title }}</div>
+                                {{ entries sort="date:desc" :limit="_default_page_count" as="articles" }}
+                                    {{ unless no_results }}
+                                        <ul>
+                                            {{ articles }}
+                                                <li class="mb-2">
+                                                    <a href="{{ url }}" title="{{ title }}" class="text-gray-800 hover:underline">{{ title | safe_truncate(85, '...') }}</a>
+                                                    <p class="text-sm text-gray-500">By {{ author.name /}} | {{ date | iso_format('LLL') }}</p>
+                                                </li>
+                                            {{ /articles }}
+                                        </ul>
+                                    {{ /unless }}
+                                {{ /entries }}
+                            </div>
+                        {{ /chunk }}
+                    </div>
+                {{ /_topics }}
+            {{ /pinned_topics }}
+        {{ /if }}
+    </div>
+    <div class="col-span-1 ">
+        <div class="font-bold text-lg mb-4">{{ right_side_bar_title /}}</div>
+        {{ if right_side_featured_article }}
+            {{ right_side_featured_article }}
+                <div class="max-w-lg mx-auto">
+                    <div class="overflow-hidden h-48">
+                        <img src="{{ glide :src="header_image" width="350" height="175" /}}" alt="{{ title }}" class="object-cover">
+
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">{{ title }}</h2>
+                        <div class="text-gray-700 text-sm mb-4">
+                            <span class="mr-2">By {{ author.name /}}</span>
+                            <span class="mr-2">|</span>
+                            <span>{{ date | iso_format('LLL') }}</span>
+                        </div>
+
+                        <p class="text-gray-700 text-base mb-4 pr-4">
+                            {{ excerpt }}
+                        </p>
+
+                        {{ partial:components/read_more /}}
+                    </div>
+                </div>
+            {{ /right_side_featured_article }}
+        {{ /if }}
+        {{ if right_side_pinned_posts }}
+            <ul class="mt-8">
+                {{ right_side_pinned_posts }}
+                    <li class="flex items-center mb-4">
+                        {{ partial:components/post/sidebar title_limit="95" /}}
+                    </li>
+                {{ /right_side_pinned_posts }}
+            </ul>
+        {{ /if }}
+        {{ if sidebar_components }}
+            {{ sidebar_components }}
+                {{ partial:if_exists src="components/sidebar/_{type}" title_limit="95" /}}
+            {{ /sidebar_components }}
+        {{ /if }}
+    </div>
+</div>

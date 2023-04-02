@@ -1,0 +1,14 @@
+<div class="flex justify-between items-center text-center w-full border-t border-gray-200 py-8 mt-8">
+    {{ paginate }}
+        {{ if prev_page }}
+            <a href="{{ prev_page }}" class="w-1/2">
+                <p class="font-bold text-lg uppercase mb-1">&larr; Go Back</p>
+            </a>
+        {{ /if }}
+        {{ if next_page }}
+            <a href="{{ next_page }}" class="w-1/2">
+                <p class="font-bold text-lg uppercase mb-1">View More &rarr;</p>
+            </a>
+        {{ /if }}
+    {{ /paginate }}
+</div>

@@ -1,0 +1,24 @@
+{{ use_layout:layouts/sidebar /}}
+{{ partial:components/title /}}
+{{ _pagination = null }}
+{{ partial:components/grid }}
+    {{ entries sort="date:desc" :paginate="_default_page_count" as="posts" }}
+        {{ unless no_results }}
+            {{ posts }}
+                {{ partial:components/post/card /}}
+            {{ /posts }}
+        {{ /unless }}
+        {{ _pagination = paginate; }}
+    {{ /entries }}
+    {{ unless _is_infinite_scroll }}
+        {{ section:pagination }}
+            {{ partial:components/pagination/basic_links :paginate="_pagination" /}}
+            {{ partial:components/scroll/explore /}}
+        {{ /section:pagination }}
+    {{ else }}
+        {{ section:pagination }}
+            {{ partial:components/pagination/load_more /}}
+            {{ partial:components/scroll/explore /}}
+        {{ /section:pagination }}
+    {{ /unless }}
+{{ /partial:components/grid }}

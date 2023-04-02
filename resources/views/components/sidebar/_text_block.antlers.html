@@ -1,0 +1,8 @@
+<div class="flex flex-col">
+    {{ unless text_block_title | is_empty }}
+        <div class="font-bold text-lg mb-4">{{ text_block_title }}</div>
+    {{ /unless }}
+    <div class="prose">
+        {{ text_block_content }}
+    </div>
+</div>

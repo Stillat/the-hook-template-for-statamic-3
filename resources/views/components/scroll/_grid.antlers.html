@@ -1,0 +1,13 @@
+{{ if root_id | starts_with('topics::') }}
+    {{ collection:blog sort="random" limit="{_default_page_count}" :id:not_in="ids" taxonomy:topics="{root_id}" }}
+        {{ unless no_results }}
+            {{ partial:components/post/card /}}
+        {{ /unless }}
+    {{ /collection:blog }}
+{{ else }}
+    {{ collection:blog sort="random" limit="{_default_page_count}" :id:not_in="ids" }}
+        {{ unless no_results }}
+            {{ partial:components/post/card /}}
+        {{ /unless }}
+    {{ /collection:blog }}
+{{ /if }}

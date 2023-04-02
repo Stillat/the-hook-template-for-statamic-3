@@ -1,0 +1,19 @@
+<header class="bg-gray-10 sm:hidden">
+    <div class="flex items-center justify-between px-4 py-3">
+        <a href="{{ homepage }}" class="flex items-center">
+            {{ svg:svg/hook  class="w-8 mr-4" /}}
+
+            <span class="leading-tight font-medium">{{ _site_name /}}</span>
+        </a>
+        <button type="button" class="text-gray-400 hover:text-white focus:text-white focus:outline-none" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path fill-rule="evenodd" d="M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z"></path>
+            </svg>
+        </button>
+    </div>
+    <nav class="px-2 pt-2 pb-4 hidden">
+        {{ nav:main }}
+            <a href="{{ url }}" class="block p-4 text-md {{ if is_current || is_parent }}font-bold text-gray-900{{ /if }} hover:text-gray-700">{{ title }}</a>
+        {{ /nav:main }}
+    </nav>
+</header>

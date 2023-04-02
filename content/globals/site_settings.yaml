@@ -1,0 +1,80 @@
+title: 'Site Settings'
+data:
+  site_name: 'The Hook'
+  lower_content:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'We hold ourselves to the highest standards'
+  show_breaking_news: true
+  breaking_news_title: 'Recently Updated'
+  breaking_news_article: f2acfaf9-ccff-4c72-a750-336e05c94f44
+  default_page_count: 6
+  pagination_type: infinite
+  randomize_topic_filters: false
+  sidebar_recent_post_count: 6
+  sidebar_components:
+    -
+      id: lfylus2l
+      recent_posts_title: 'In Food & Entertainment'
+      topic_filter:
+        - entertainment
+        - food
+      recent_post_limit: 3
+      type: post_list
+      enabled: true
+    -
+      id: lfylv5hh
+      recent_posts_title: 'Recent News'
+      topic_filter:
+        - life-hacks
+        - entertainment
+      recent_post_limit: 3
+      type: post_list
+      enabled: true
+    -
+      id: lfzdgxfb
+      text_block_content:
+        -
+          type: paragraph
+          content:
+            -
+              type: text
+              text: 'Get the latest news, analysis, and commentary from our team of journalists and experts. From breaking news to in-depth investigations, we provide comprehensive coverage of the issues that matter most to you. With a focus on accuracy, fairness, and integrity, our news site is your go-to source for reliable and timely information.'
+        -
+          type: paragraph
+          content:
+            -
+              type: text
+              text: 'Stay connected with us and never miss a story – subscribe to our newsletter, follow us on social media, and visit our website regularly for the latest updates.'
+        -
+          type: paragraph
+          content:
+            -
+              type: text
+              text: 🌊🌊
+      type: text_block
+      enabled: true
+      text_block_title: 'Stay Up-to-Date with Our Latest News'
+    -
+      id: lfylqmow
+      type: search_form
+      enabled: true
+  social_media_profiles:
+    -
+      id: lfzf7woo
+      social_media_display_name: Twitter
+      social_media_profile_url: 'http://127.0.0.1:8000/'
+      social_media_icon: social_media_icons/twitter.svg
+    -
+      id: lfzfmo7d
+      social_media_icon: social_media_icons/facebook.svg
+      social_media_display_name: Facebook
+      social_media_profile_url: 'http://127.0.0.1:8000/'
+    -
+      id: lfzfmykd
+      social_media_icon: social_media_icons/youtube.svg
+      social_media_display_name: YouTube
+      social_media_profile_url: 'http://127.0.0.1:8000/'

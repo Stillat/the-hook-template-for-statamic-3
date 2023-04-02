@@ -1,0 +1,24 @@
+{{ collection:blog sort="radnom" limit="{view:post_limit ?? _default_page_count}" as="articles" }}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border-t border-gray-200 py-8 mt-8">
+        {{ unless no_results }}
+            {{ articles | chunk(3) }}
+                <div>
+                    <ul>
+                        {{ chunk }}
+                            {{ if first }}
+                                <li class="flex items-center mb-4">
+                                    {{ partial:components/post/sidebar title_limit="65" /}}
+                                </li>
+                            {{ else }}
+                                <li class="mb-2">
+                                    <a href="{{ url }}" title="{{ title }}" class="text-gray-800 hover:underline">{{ title | safe_truncate(85, '...') }}</a>
+                                    <p class="text-sm text-gray-500">By {{ author.name /}} | {{ date | iso_format('LLL') }}</p>
+                                </li>
+                            {{ /if }}
+                        {{ /chunk }}
+                    </ul>
+                </div>
+            {{ /articles }}
+        {{ /unless }}
+    </div>
+{{ /collection:blog }}
